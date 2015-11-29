@@ -27,10 +27,13 @@ cp dot.env .env
 ```
 
 以下のように「.env」にデータベースのusername、passwordを記入。(適宜)
+また、メール送信のSMTPサーバ利用のためgmailのアカウント名及びパスワードの記入。
 
 ```rb
 DATABASE_USER=root
 DATABASE_PASSWORD=root
+GMAIL_USER=example@gmail.com
+GMAIL_PASSWORD=hogehoge
 ```
 
 ## データベースの作成・準備
