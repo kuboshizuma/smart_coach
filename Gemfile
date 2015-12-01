@@ -29,6 +29,8 @@ gem 'erb2haml'
 
 gem 'devise'
 gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'rmagick'
 
 # for bootstrap / install if needed
 # gem 'therubyracer'
