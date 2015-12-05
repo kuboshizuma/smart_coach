@@ -1,0 +1,6 @@
+= form_for @lesson do |f|
+  = f.text_field :title, placeholder: "タイトル"
+  = f.text_area :description, placeholder: "内容"
+  = f.select :genre_id, @genres
+  = f.file_field :thumbnail
+  = f.submit "登録する"
