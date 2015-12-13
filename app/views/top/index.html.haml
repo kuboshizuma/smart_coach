@@ -6,8 +6,9 @@
   = link_to "会員登録", new_user_session_path
 
 - @lessons.each do |lesson|
-  %p
-    = image_tag lesson.thumbnail.thumb.url
-    = "タイトル: #{lesson.title}"
-    = "内容: #{lesson.description}"
-    = "ジャンル: #{lesson.genre.name}"
+  = link_to lesson_path(lesson.id) do
+    %p
+      = image_tag lesson.thumbnail.thumb.url
+      = "タイトル: #{lesson.title}"
+      = "内容: #{lesson.description}"
+      = "ジャンル: #{lesson.genre.name}"

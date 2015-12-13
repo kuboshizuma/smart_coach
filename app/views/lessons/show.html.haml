@@ -1,0 +1,6 @@
+%p
+  = image_tag @lesson.thumbnail.thumb.url
+  = "タイトル: #{@lesson.title}"
+  = "内容: #{@lesson.description}"
+  = "ジャンル: #{@lesson.genre.name}"
+  = link_to "受講する", new_students_room_path(lesson_id: @lesson.id)

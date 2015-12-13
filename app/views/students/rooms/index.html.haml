@@ -1,0 +1,9 @@
+- @rooms.each do |room|
+  %p
+    = "開始日: #{room.start_time}"
+    = "終了日: #{room.finish_time}"
+    = image_tag room.lesson.thumbnail.thumb.url
+    = "タイトル: #{room.lesson.title}"
+    = "内容: #{room.lesson.description}"
+    = "ジャンル: #{room.lesson.genre.name}"
+
