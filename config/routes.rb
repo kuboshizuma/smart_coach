@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :coaches, only: [:index, :show]
 
   namespace :students do
-    resources :classes do
+    resources :rooms do
       resources :chat_messages, only: :index
     end
   end
