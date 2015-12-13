@@ -1,0 +1,5 @@
+= form_for @room, url: { controller: "students/rooms" } do |f|
+  = f.date_field :start_time
+  = f.date_field :finish_time
+  = f.hidden_field :lesson_id
+  = f.submit "登録する"
