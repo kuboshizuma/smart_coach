@@ -1,4 +1,4 @@
-= form_for @lesson do |f|
+= form_for @lesson, url: { controller: "coaches/lessons" } do |f|
   = f.text_field :title, placeholder: "タイトル"
   = f.text_area :description, placeholder: "内容"
   = f.select :genre_id, @genres
