@@ -1,3 +1,4 @@
+%h2 レッスンの個別ページ
 %p
   = image_tag @lesson.thumbnail.thumb.url
   = "タイトル: #{@lesson.title}"
@@ -6,6 +7,8 @@
   = link_to "編集する", edit_coaches_lesson_path(@lesson.id)
   = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
 
+%h2 受け持ち生徒
+%p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
 - @rooms.each do |room|
   = link_to coaches_lesson_student_path(@lesson, room.student) do
-    = room.student.email
+    %p= room.student.email
