@@ -1,0 +1,8 @@
+- @chat_messages.each do |message|
+  = message.message
+  = message.message_type
+  = link_to "削除", coaches_chat_message_path(message), method: :delete
+
+= form_for @chat_message, url: "/coaches/lessons/#{@lesson.id}/students/#{@student.id}/chat_messages" do |f|
+  = f.text_field :message
+  = f.submit "送信"
