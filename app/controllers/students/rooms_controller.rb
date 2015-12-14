@@ -11,6 +11,7 @@ class Students::RoomsController < ApplicationController
   def new
     @room = Room.new
     @room.lesson_id = params[:lesson_id]
+    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def create
