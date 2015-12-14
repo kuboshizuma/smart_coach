@@ -1,0 +1,11 @@
+%p
+  = image_tag @lesson.thumbnail.thumb.url
+  = "タイトル: #{@lesson.title}"
+  = "内容: #{@lesson.description}"
+  = "ジャンル: #{@lesson.genre.name}"
+  = link_to "編集する", edit_coaches_lesson_path(@lesson.id)
+  = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
+
+- @rooms.each do |room|
+  = link_to coaches_lesson_student_path(@lesson, room.student) do
+    = room.student.email

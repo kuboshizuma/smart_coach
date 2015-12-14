@@ -3,6 +3,11 @@ class Coaches::LessonsController < ApplicationController
     @lessons = Lesson.order(updated_at: :DESC)
   end
 
+  def show
+    @lesson = Lesson.find(params[:id])
+    @rooms = @lesson.rooms.includes(:student)
+  end
+
   def new
     @lesson = Lesson.new
 

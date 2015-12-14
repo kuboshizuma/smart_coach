@@ -4,6 +4,8 @@ class Students::RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
+    @lesson = Lesson.find(@room.lesson_id)
   end
 
   def new

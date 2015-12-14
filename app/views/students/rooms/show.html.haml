@@ -1,0 +1,7 @@
+%p
+  = image_tag @lesson.thumbnail.thumb.url
+  = "タイトル: #{@lesson.title}"
+  = "内容: #{@lesson.description}"
+  = "ジャンル: #{@lesson.genre.name}"
+
+= link_to "チャット", students_room_chat_messages_path(@room)
