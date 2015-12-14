@@ -9,9 +9,14 @@ class Students::RoomsController < ApplicationController
   end
 
   def new
+    if !Lesson.exists?(id: params[:lesson_id])
+      redirect_to root_path, notice: "このレッスンはもう存在しません" and return
+    elsif room = Room.find_by(lesson_id: params[:lesson_id], student_id: current_user.id)
+      redirect_to students_room_path(room), notice: "既に受講しています" and return
+    end
+    @lesson = Lesson.find(params[:lesson_id])
     @room = Room.new
     @room.lesson_id = params[:lesson_id]
-    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def create
