@@ -1,7 +1,8 @@
 class Coaches::ChatMessagesController < ApplicationController
   def index
-    @chat_messages = ChatMessage.where(room_id: params[:room_id]).order(updated_at: :DESC)
-    @chat_message = ChatMessage.new(room_id: params[:room_id], talker_id: current_user.id)
+    room = Room.find_by(lesson_id: params[:lesson_id], student_id: params[:student_id])
+    @chat_messages = ChatMessage.where(room_id: room.id).order(updated_at: :DESC)
+    @chat_message = ChatMessage.new(room_id: room.id, talker_id: current_user.id)
 
     @lesson = Lesson.find(params[:lesson_id])
     @student = User.find(params[:student_id])
