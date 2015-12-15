@@ -1,4 +1,4 @@
-class Students::RoomsController < ApplicationController
+class Students::RoomsController < Students::StudentsController
   def index
     @rooms = Room.where(student_id: current_user.id).order(updated_at: :DESC).includes(:lesson)
   end
