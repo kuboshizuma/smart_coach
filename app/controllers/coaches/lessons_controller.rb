@@ -1,4 +1,4 @@
-class Coaches::LessonsController < ApplicationController
+class Coaches::LessonsController < Coaches::CoachesController
   def index
     @lessons = Lesson.order(updated_at: :DESC)
   end

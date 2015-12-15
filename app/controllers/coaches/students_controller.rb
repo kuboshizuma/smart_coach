@@ -1,4 +1,4 @@
-class Coaches::StudentsController < ApplicationController
+class Coaches::StudentsController < Coaches::CoachesController
   def index
     @lesson = Lesson.find(params[:lesson_id])
     @rooms = Room.where(lesson_id: params[:lesson_id]).includes(:student)

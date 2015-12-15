@@ -1,4 +1,4 @@
-class Coaches::ChatMessagesController < ApplicationController
+class Coaches::ChatMessagesController < Coaches::CoachesController
   def index
     room = Room.find_by(lesson_id: params[:lesson_id], student_id: params[:student_id])
     @chat_messages = ChatMessage.where(room_id: room.id).order(updated_at: :DESC)
