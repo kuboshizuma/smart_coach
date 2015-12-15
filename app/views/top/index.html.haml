@@ -8,6 +8,12 @@
 = link_to "コーチのページ", coaches_lessons_path
 = link_to "生徒用マイページ", students_rooms_path
 
+%h2 ジャンル
+
+%ul
+  - @genres.each do |genre|
+    %li= link_to genre.name, lessons_genre_path(genre)
+
 %h2 新着レッスン一覧
 
 - @lessons.each do |lesson|
