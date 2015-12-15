@@ -1,6 +1,6 @@
 class Students::RoomsController < ApplicationController
   def index
-    @rooms = Room.order(updated_at: :DESC).includes(:lesson)
+    @rooms = Room.where(student_id: current_user.id).order(updated_at: :DESC).includes(:lesson)
   end
 
   def show
