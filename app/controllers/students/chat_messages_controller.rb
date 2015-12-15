@@ -1,4 +1,4 @@
-class Students::ChatMessagesController < ApplicationController
+class Students::ChatMessagesController < Students::StudentsController
   def index
     @chat_messages = ChatMessage.where(room_id: params[:room_id]).order(updated_at: :DESC)
     @chat_message = ChatMessage.new(room_id: params[:room_id], talker_id: current_user.id)
