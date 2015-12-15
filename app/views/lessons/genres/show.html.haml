@@ -1,0 +1,8 @@
+%h2 「#{@genre.name}」のレッスン一覧
+- @lessons.each do |lesson|
+  = link_to lesson_path(lesson.id) do
+    %p
+      = image_tag lesson.thumbnail.thumb.url
+      = "タイトル: #{lesson.title}"
+      = "内容: #{lesson.description}"
+      = "ジャンル: #{lesson.genre.name}"
