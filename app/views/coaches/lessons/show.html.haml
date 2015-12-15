@@ -11,4 +11,6 @@
 %p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
 - @rooms.each do |room|
   = link_to coaches_lesson_student_path(@lesson, room.student) do
-    %p= room.student.email
+    %p
+      = room.student.email
+      = image_tag room.student.avatar
