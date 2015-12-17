@@ -1,0 +1,14 @@
+.footer
+  .lesson-genre
+    %p レッスンジャンル一覧
+    %ul
+      - @genres.each do |genre|
+        %li #{ genre.name }
+  .info
+    %p サイト情報
+    %ul
+      %li
+        = link_to 'FAQ', '#'
+      %li
+        = link_to 'お問い合わせ', '#'
+    = image_tag("footer_logo.png", alt: "footer", id: "footer")
