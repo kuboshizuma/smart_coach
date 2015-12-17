@@ -1,0 +1,169 @@
+$mainColor: #D13B40;
+$baseColor: #E6E3DB;
+@mixin clearfix {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+body {
+  background-color: $baseColor;
+}
+
+
+.header {
+  width: 100%;
+  min-height: 650px;
+  img {
+   width: 100%;
+  }
+}
+
+.main {
+  background-color: white;
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
+
+  h1 {
+    font-size: 23px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    line-height: 50px;
+
+  }
+
+  hr {
+    border-color: $mainColor;
+    width: 200px;
+    margin: 0 auto;
+    border-width: 2px 0px 0px 0px;
+  }
+
+  img.icons {
+    text-align: center;
+    display: inline-block;
+    margin: 70px;
+    margin-left: 110px;
+  }
+
+  .image-content {
+    height: 300px;
+    width: 100%;
+    @include clearfix;
+
+    .left-wrapper{
+      float: left;
+      margin: 80px;
+      margin-left: 150px;
+     }
+    .right-wrapper{
+      float: right;
+      margin: 80px;
+      margin-right: 150px;
+     }
+    img{
+      height: 240px;
+      width: 350px;
+    }
+   }
+}
+
+
+.header-tab {
+  background-color: $mainColor;
+  height: 80px;
+  margin-top: 50px;
+
+  p {
+    font-size: 36px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 22px;
+  }
+}
+
+.lesson {
+  background-color: white;
+  height: 500px;
+  width: 100%;
+  padding-top: 50px;
+
+  .row-content {
+    background-color: $baseColor;
+    height: 150px;
+    width: 70%;
+    margin: 0px auto;
+    border: 1px solid #9F9999;
+
+    img {
+      margin: 20px 20px;
+      float: left;
+    }
+    p#genre {
+      margin: 40px;
+      font-size: 40px;
+    }
+    p#lesson {
+      margin: 40px;
+      font-size: 20px;
+    }
+  }
+}
+
+.footer{
+  background-color:  #707070;
+  height: 200px;
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 40px;
+
+  .lesson-genre {
+    width: 280px;
+    margin-left: 180px;
+    display: inline-block;
+    float: left;
+
+    p {
+      font-size: 20px;
+      color: white;
+    }
+
+    li {
+      list-style: none;
+      font-size: 15px;
+      margin-top: 20px;
+      color: white;
+    }
+  }
+
+  .info {
+    width: 300px;
+    float: right;
+    margin-right: 500px;
+
+    p {
+      font-size: 20px;
+      color: white;
+    }
+
+    li {
+      list-style: none;
+      font-size: 15px;
+      margin-top: 20px;
+      color: white;
+    }
+  }
+  img#footer {
+    height: 60px;
+    width: 300px;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
+
+
