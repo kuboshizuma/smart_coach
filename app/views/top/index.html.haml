@@ -1,25 +1,44 @@
-%p topページ
-- if user_signed_in?
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-- else
-  = link_to "ログイン", user_session_path
-  = link_to "会員登録", new_user_session_path
+.header
+  = image_tag("header_logo.png", alt: "Smart-Coach")
 
-= link_to "コーチのページ", coaches_lessons_path
-= link_to "生徒用マイページ", students_rooms_path
+.main
+  %h1 Smart-Coachとは？
+  %hr
+  %h2 Smart-Coachではあなた専属のコーチをスマホ上で探せます。
+  = image_tag("baseball.png", alt: "baseball", class: "icons")
+  = image_tag("soccer.png", alt: "soccer", class: "icons")
+  = image_tag("tennis.png", alt: "tennis", class: "icons")
+  = image_tag("basketball.png", alt: "basketball", class: "icons")
 
-%h2 ジャンル
 
-%ul
+.main
+  %h1 Smart-Coachを選ぶ理由
+  %hr
+  .image-content
+    .left-wrapper
+      = image_tag("coach.png", alt: "coach")
+      %p スポーツの専門家からマンツーマンの個別指導
+    .right-wrapper
+      = image_tag("phone.png", alt: "phone")
+      %p スマホから自分に最適なコーチが探せる
+
+
+.header-tab
+  %p ジャンル一覧
+.lesson
   - @genres.each do |genre|
-    %li= link_to genre.name, lessons_genre_path(genre)
+    .row-content
+      = image_tag("bat.png")
+      %p#genre #{ genre.name }
 
-%h2 新着レッスン一覧
+.header-tab
+  %p 新着レッスン一覧
+.lesson
+  - @lessons.each do |lesson|
+    .row-content
+      .thumbnail-content
+        = image_tag("#{lesson.thumbnail}", size: "100x100")
+      %p#lesson #{ lesson.title }
 
-- @lessons.each do |lesson|
-  = link_to lesson_path(lesson.id) do
-    %p
-      = image_tag lesson.thumbnail.thumb.url
-      = "タイトル: #{lesson.title}"
-      = "内容: #{lesson.description}"
-      = "ジャンル: #{lesson.genre.name}"
+
+
