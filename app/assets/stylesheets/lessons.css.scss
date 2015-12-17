@@ -1,0 +1,38 @@
+$mainColor: #D13B40;
+$baseColor: #E6E3DB;
+
+.header-tab {
+  background-color: $mainColor;
+  height: 80px;
+  margin-top: 50px;
+
+  p {
+    font-size: 36px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 22px;
+  }
+}
+
+.lesson {
+  background-color: white;
+  height: 500px;
+  width: 100%;
+  padding-top: 50px;
+
+  .row-content {
+    background-color: $baseColor;
+    height: 150px;
+    width: 70%;
+    border: 1px solid #9F9999;
+
+    img {
+      margin: 20px 20px;
+      float: left;
+    }
+    #lesson {
+      margin: 40px;
+      font-size: 20px;
+    }
+  }
+}
