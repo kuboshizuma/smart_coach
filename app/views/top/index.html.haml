@@ -27,9 +27,10 @@
   %p ジャンル一覧
 .lesson
   - @genres.each do |genre|
-    .row-content
-      = image_tag("bat.png")
-      %p#genre #{ genre.name }
+    = link_to lessons_genre_path(genre.id) do
+      .row-content
+        = image_tag("bat.png")
+        %p#genre #{ genre.name }
 
 .header-tab
   %p 新着レッスン一覧
