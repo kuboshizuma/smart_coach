@@ -3,9 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :footer_genres
+
   protect_from_forgery with: :exception
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :avatar
+  end
+
+  private
+  def footer_genres
+    @genres = Genre.all
   end
 end
