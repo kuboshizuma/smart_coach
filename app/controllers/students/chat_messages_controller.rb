@@ -5,8 +5,11 @@ class Students::ChatMessagesController < Students::StudentsController
   end
 
   def create
-    if ChatMessage.create(chat_message_params)
-      redirect_to action: :index
+    if chat_message = ChatMessage.create(chat_message_params)
+      Pusher["room_#{chat_message.room_id}"].trigger('chat_event', {
+        message: params[:chat_message][:message]
+      })
+      render :text => 'OK', :status => 200
     else
       render :index
     end

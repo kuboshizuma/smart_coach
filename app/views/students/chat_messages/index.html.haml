@@ -1,10 +1,16 @@
-- @chat_messages.each do |message|
-  = message.message
-  = message.message_type
-  = link_to "削除", coaches_chat_message_path(message), method: :delete
+%h2 メッセージ一覧
+%div{id: 'messagelog', data: {key: ENV['PUSHER_ACCESS_KEY'], id: @chat_message.room_id} }
+  - @chat_messages.each do |message|
+    %p
+      = message.message
+      = message.message_type
+      = link_to "削除", coaches_chat_message_path(message), method: :delete
 
-= form_for @chat_message, url: "/students/rooms/#{@chat_message.room_id}/chat_messages" do |f|
+= form_for @chat_message, url: "/students/rooms/#{@chat_message.room_id}/chat_messages", remote: true do |f|
   = f.text_field :message
   = f.hidden_field :room_id
   = f.hidden_field :talker_id
   = f.submit "送信"
+
+= javascript_include_tag '//js.pusher.com/2.2/pusher.min.js'
+= javascript_include_tag 'chat/receiver'

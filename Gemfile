@@ -31,6 +31,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'pusher'
 
 # for bootstrap / install if needed
 gem 'therubyracer'
