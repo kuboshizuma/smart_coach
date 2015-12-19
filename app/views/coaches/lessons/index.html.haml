@@ -1,12 +1,7 @@
+- content_for :head do
+  = stylesheet_link_tag :top_application
+  = stylesheet_link_tag :coach_application
 = link_to "レッスンの新規作成", new_coaches_lesson_path
-
-%h2 担当レッスン一覧
-- @lessons.each do |lesson|
-  = link_to coaches_lesson_path(lesson) do
-    %p
-      = image_tag lesson.thumbnail.thumb.url
-      = "タイトル: #{lesson.title}"
-      = "内容: #{lesson.description}"
-      = "ジャンル: #{lesson.genre.name}"
-      = link_to "編集する", edit_coaches_lesson_path(lesson.id)
-      = link_to "削除する", coaches_lesson_path(lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
+%h2.header-tab 担当レッスン一覧
+.coach
+  = render partial: 'common/coach_lesson', collection: @lessons
