@@ -1,0 +1,101 @@
+@import "valiables";
+
+.main_cover {
+  background-image: image-url("main_image");
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  h2 {
+    padding-top: 50px;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 160%;
+    span {
+      color: $mainColor;
+      font-size: 26px;
+    }
+  }
+}
+
+.top_contents {
+  background-color: white;
+  width: 100%;
+  padding: 40px 5% 0;
+  h2 {
+    font-size: 23px;
+    line-height: 50px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 160%;
+    padding-top: 30px;
+  }
+  hr {
+    border-color: $mainColor;
+    width: 80%;
+    margin: 0 auto;
+    border-width: 2px 0px 0px 0px;
+  }
+  ul.icons {
+    text-align: center;
+    margin-bottom: 3px;
+    padding: 15px 0;
+    li {
+      margin: 20px;
+      display: inline-block;
+      img {
+        width: 70px;
+      }
+    }
+  }
+  .why_box {
+    text-align: center;
+    .why_contents{
+      margin: 20px;
+      width: 235px;
+      display: inline-block;
+      img {
+        width: 100%;
+      }
+      p {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+.header-tab {
+  background-color: $mainColor;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
+
+.lesson {
+  width: 100%;
+  .row-content {
+    background-color: #fff;
+    height: 150px;
+    width: 100%;
+    margin: 0px auto;
+    border-bottom: 1px solid #e7e7e7;
+
+    img {
+      margin: 20px 20px;
+      float: left;
+    }
+    p#genre {
+      font-size: 40px;
+    }
+    p#lesson {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,14 +1,15 @@
-.footer
-  .lesson-genre
-    %p レッスンジャンル一覧
-    %ul
+%footer
+  .footer_list_box
+    %h3 レッスンジャンル一覧
+    %ul.clearfix
       - @genres.each do |genre|
         %li #{ genre.name }
-  .info
-    %p サイト情報
-    %ul
-      %li
-        = link_to 'FAQ', '#'
-      %li
-        = link_to 'お問い合わせ', '#'
-    = image_tag("footer_logo.png", alt: "footer", id: "footer")
+  .footer_list_box
+    %h3 サイト情報
+    %ul.clearfix
+      = link_to '#' do
+        %li FAQ
+      = link_to '#' do
+        %li お問い合わせ
+  = image_tag("footer_logo.png", alt: "smart_coach", class: "footer_logo")
+  %p.copy_rights © 2015 smart_coach All Rights Reserved.

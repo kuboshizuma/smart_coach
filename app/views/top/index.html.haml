@@ -1,30 +1,41 @@
-.header
-  = image_tag("header_logo.png", alt: "Smart-Coach")
-
-.main
-  %h1 Smart-Coachとは？
+- content_for :head do
+  %title Smart Coach
+  = stylesheet_link_tag :top_application
+.main_cover
+  %h2
+    %span Smart-Coach
+    であなただけのコーチを探し、ライバルに差をつけよう。
+.top_contents
+  %h2 Smart-Coachとは？
   %hr
-  %h2 Smart-Coachではあなた専属のコーチをスマホ上で探せます。
-  = image_tag("baseball.png", alt: "baseball", class: "icons")
-  = image_tag("soccer.png", alt: "soccer", class: "icons")
-  = image_tag("tennis.png", alt: "tennis", class: "icons")
-  = image_tag("basketball.png", alt: "basketball", class: "icons")
+  %h3 Smart-Coachではあなた専属のコーチをスマホ上で探せます。
+  %ul.icons
+    %li= image_tag("baseball.png", alt: "baseball")
+    %li= image_tag("soccer.png", alt: "soccer")
+    %br
+    %li= image_tag("tennis.png", alt: "tennis")
+    %li= image_tag("basketball.png", alt: "basketball")
 
 
-.main
-  %h1 Smart-Coachを選ぶ理由
+.top_contents
+  %h2 Smart-Coachを選ぶ理由
   %hr
-  .image-content
-    .left-wrapper
+  %ul.why_box
+    %li.why_contents
       = image_tag("coach.png", alt: "coach")
-      %p スポーツの専門家からマンツーマンの個別指導
-    .right-wrapper
+      %p
+        スポーツの専門家から
+        %br
+        マンツーマンの個別指導
+    %li.why_contents
       = image_tag("phone.png", alt: "phone")
-      %p スマホから自分に最適なコーチが探せる
+      %p
+        スマホから自分に最適な
+        %br
+        コーチが探せる
 
 
-.header-tab
-  %p ジャンル一覧
+%h2.header-tab ジャンル一覧
 .lesson
   - @genres.each do |genre|
     = link_to lessons_genre_path(genre.id) do
@@ -32,16 +43,11 @@
         = image_tag("bat.png")
         %p#genre #{ genre.name }
 
-.header-tab
-  %p 新着レッスン一覧
+%h2.header-tab 新着レッスン一覧
 .lesson
   - @lessons.each do |lesson|
     .row-content
       .thumbnail-content
         = image_tag("#{lesson.thumbnail}", size: "100x100")
       %p#lesson #{ lesson.title }
-
-= render partial: "layouts/footer"
-
-
 
