@@ -1,0 +1,5 @@
+= link_to coach_path(coach.id) do
+  .row-content
+    .thumbnail-content
+      = image_tag("#{coach.avatar}", size: "100x100")
+    %p #{ coach.nickname }
