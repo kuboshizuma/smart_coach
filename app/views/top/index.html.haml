@@ -45,9 +45,4 @@
 
 %h2.header-tab 新着レッスン一覧
 .lesson
-  - @lessons.each do |lesson|
-    .row-content
-      .thumbnail-content
-        = image_tag("#{lesson.thumbnail}", size: "100x100")
-      %p#lesson #{ lesson.title }
-
+  = render partial: 'common/lesson', collection: @lessons
