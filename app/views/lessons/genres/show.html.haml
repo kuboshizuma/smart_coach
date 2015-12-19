@@ -1,8 +1,5 @@
-.header-tab
-  %p 「#{@genre.name}」のレッスン一覧
+- content_for :head do
+  = stylesheet_link_tag :top_application
+%h2.header-tab #{@genre.name}のレッスン一覧
 .lesson
-  - @lessons.each do |lesson|
-    = link_to lesson_path(lesson.id) do
-      .row-content
-        = image_tag("#{lesson.thumbnail}", size: "100x100")
-        #lesson #{ lesson.title }
+  = render partial: 'common/lesson', collection: @lessons
