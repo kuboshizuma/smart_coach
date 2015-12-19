@@ -1,4 +1,5 @@
-.row-content
-  .thumbnail-content
-    = image_tag("#{lesson.thumbnail}", size: "100x100")
-  %p#lesson #{ lesson.title }
+= link_to lesson_path(lesson.id) do
+  .row-content
+    .thumbnail-content
+      = image_tag("#{lesson.thumbnail}", size: "100x100")
+    %p#lesson #{ lesson.title }
