@@ -1,3 +1,6 @@
-- @coaches.each do |coach|
-  = link_to coach_path(coach.id) do
-    = coach.email
+- content_for :head do
+  = stylesheet_link_tag :top_application
+  = stylesheet_link_tag :coach_application
+%h2.header-tab コーチ一覧
+.coach
+  = render partial: 'common/coach', collection: @coaches
