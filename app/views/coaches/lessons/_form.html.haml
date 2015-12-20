@@ -1,26 +1,27 @@
 - content_for :head do
   = stylesheet_link_tag :form_application
 .form-wrapper
-%h2.form-title レッスンの新規作成
-  = form_for @lesson, url: { controller: "coaches/lessons" } do |f|
-    = f.text_field :title, placeholder: "タイトル", class: 'input-item'
-    = f.text_area :description, placeholder: "内容", class: 'input-item'
-    = f.select :genre_id, @genres_options
-    = f.file_field :thumbnail
-    = f.date_select :start_day
-    = f.select :month, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  %h2.form-title レッスンの新規作成
+  .item-container
+    = form_for @lesson, url: { controller: "coaches/lessons" } do |f|
+      = f.text_field :title, placeholder: "タイトル", class: 'input-item'
+      = f.text_area :description, placeholder: "内容", class: 'input-item'
+      = f.select :genre_id, @genres_options
+      = f.file_field :thumbnail
+      = f.date_select :start_day
+      = f.select :month, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-    - {"日": 0, "月": 1, "火": 2, "水": 3, "木": 4, "金": 5, "土": 6}.each do |(weekday, week_id)|
-      %p{id: "week_time_#{week_id}"}
-        = f.fields_for :lesson_shifts do |l|
-          = weekday
-          = l.hidden_field :weekday, value: week_id
-          = l.time_field :start_time
-          = "~"
-          = l.time_field :finish_time
-          %button{type: "button", class: "week_time_delete", data: {id: week_id}} 削除
+      - {"日": 0, "月": 1, "火": 2, "水": 3, "木": 4, "金": 5, "土": 6}.each do |(weekday, week_id)|
+        %p{id: "week_time_#{week_id}"}
+          = f.fields_for :lesson_shifts do |l|
+            = weekday
+            = l.hidden_field :weekday, value: week_id
+            = l.time_field :start_time
+            = "~"
+            = l.time_field :finish_time
+            %button{type: "button", class: "week_time_delete", data: {id: week_id}} 削除
 
-    = f.submit "登録する", class: 'form-btn'
+      = f.submit "登録する", class: 'form-btn'
 
 :javascript
   $(function() {
