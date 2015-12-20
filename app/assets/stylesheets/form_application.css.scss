@@ -1,0 +1,52 @@
+@import "valiables";
+
+
+.form-wrapper {
+  margin: 0 auto;
+  background-color: #fff;
+  width: 60%;
+  margin-top: 30px;
+
+  .form-title {
+    background-color: $mainColor;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .item-container {
+    text-align: center;
+    padding: 30px;
+
+    .input-item {
+      border: none;
+      border-bottom: 2px solid $baseColor;
+      width: 50%;
+      margin: 20px;
+      padding: 5px;
+      outline-style: none;
+
+    }
+    #lesson_genre_id{
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 20px;
+      width: 50%;
+      border: none;
+      background-color: $baseColor;
+      height: 35px;
+      padding: 5px;
+    }
+
+    .form-btn {
+      width: 50%;
+      height: 50px;
+      background-color: $mainColor;
+      color: #fff;
+      border: none;
+      margin: 20px;
+    }
+  }
+
+}
