@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215124553) do
+ActiveRecord::Schema.define(version: 20151220062142) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text     "message",      limit: 65535
@@ -28,14 +28,27 @@ ActiveRecord::Schema.define(version: 20151215124553) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "lesson_shifts", force: :cascade do |t|
+    t.integer  "weekday",     limit: 4
+    t.time     "start_time"
+    t.time     "finish_time"
+    t.integer  "lesson_id",   limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "lessons", force: :cascade do |t|
-    t.string   "title",       limit: 255,   null: false
-    t.text     "description", limit: 65535, null: false
-    t.integer  "coach_id",    limit: 4
-    t.integer  "genre_id",    limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "thumbnail",   limit: 255
+    t.string   "title",         limit: 255,               null: false
+    t.text     "description",   limit: 65535,             null: false
+    t.integer  "coach_id",      limit: 4
+    t.integer  "genre_id",      limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "thumbnail",     limit: 255
+    t.date     "start_day"
+    t.date     "finish_day"
+    t.integer  "shift_minutes", limit: 4
+    t.integer  "student_sum",   limit: 4,     default: 0
   end
 
   create_table "rooms", force: :cascade do |t|

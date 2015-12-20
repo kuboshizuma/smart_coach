@@ -1,0 +1,7 @@
+= link_to lesson_path(student_room.id) do
+  .row-content
+    .thumbnail-content
+      = image_tag student_room.lesson.thumbnail, size: "100x100"
+    %p#lesson #{ student_room.lesson.title }
+    %p 受講期間: #{ student_room.start_time } ~ #{ student_room.finish_time }
+    %p ジャンル: #{ student_room.lesson.genre.name }

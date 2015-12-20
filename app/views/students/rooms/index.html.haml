@@ -1,11 +1,6 @@
-%h2 受講コース一覧
-- @rooms.each do |room|
-  = link_to students_room_path(room) do
-    %p
-      = "開始日: #{room.start_time}"
-      = "終了日: #{room.finish_time}"
-      = image_tag room.lesson.thumbnail.thumb.url
-      = "タイトル: #{room.lesson.title}"
-      = "内容: #{room.lesson.description}"
-      = "ジャンル: #{room.lesson.genre.name}"
-
+- content_for :head do
+  = stylesheet_link_tag :top_application
+  = stylesheet_link_tag :lesson_application
+%h2.header-tab 受講コース一覧
+.lesson
+  = render partial: 'common/student_room', collection: @rooms
