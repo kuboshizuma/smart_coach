@@ -10,9 +10,10 @@ class Coaches::LessonsController < Coaches::CoachesController
 
   def new
     @lesson = Lesson.new
+    @lesson.lesson_shifts.build
 
     genres = Genre.all
-    @genres = genres.map { |genre| [genre.name, genre.id] }
+    @genres_options = genres.map { |genre| [genre.name, genre.id] }
   end
 
   def create
@@ -30,12 +31,16 @@ class Coaches::LessonsController < Coaches::CoachesController
 
   def destroy
     lessons = Lesson.find(params[:id])
-    lessons.delete
+    lessons.destroy
     redirect_to coaches_lessons_path
   end
 
   private
   def lesson_params
-    params.require(:lesson).permit(:title, :description, :genre_id, :thumbnail)
+    shift_minutes = 0
+    params[:lesson][:lesson_shifts_attributes].each_value do |shift|
+      shift_minutes += ((Time.parse(shift[:finish_time]) - Time.parse(shift[:start_time])).to_i / 60).to_i
+    end
+    params.require(:lesson).permit(:title, :description, :genre_id, :thumbnail, :start_day, :month, lesson_shifts_attributes: [:weekday, :start_time, :finish_time]).merge(shift_minutes: shift_minutes)
   end
 end
