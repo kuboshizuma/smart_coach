@@ -1,0 +1,11 @@
+= link_to coaches_lesson_student_path(@lesson, coach_student) do
+  .row-content
+    .thumbnail-content
+      = image_tag @lesson.thumbnail, size: "100x100"
+    %p#coach
+      = @lesson.title
+.row-content
+  .thumbnail-content
+    = image_tag coach_student.student.avatar, size: "100x100"
+  %p#coach
+    = coach_student.student.nickname

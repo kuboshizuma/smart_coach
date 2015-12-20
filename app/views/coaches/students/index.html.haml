@@ -1,8 +1,6 @@
-%h2 担当生徒情報
-%p
-  = @lesson.title
-  = image_tag @lesson.thumbnail
-  = @lesson.description
-
-- @rooms.each do |room|
-  %p= link_to room.student.email, coaches_lesson_student_path(@lesson, room.student)
+- content_for :head do
+  = stylesheet_link_tag :top_application
+  = stylesheet_link_tag :coach_application
+%h2.header-tab 担当生徒一覧
+.coach
+  = render partial: 'common/coach_student', collection: @rooms
