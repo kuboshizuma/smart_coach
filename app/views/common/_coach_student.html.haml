@@ -1,9 +1,9 @@
-= link_to coaches_lesson_student_path(@lesson, coach_student) do
+= link_to coaches_lesson_path(lesson) do
   .row-content
     .thumbnail-content
-      = image_tag @lesson.thumbnail, size: "100x100"
+      = image_tag lesson.thumbnail, size: "100x100"
     %p#coach
-      = @lesson.title
+      = lesson.title
 .row-content
   .thumbnail-content
     = image_tag coach_student.student.avatar, size: "100x100"

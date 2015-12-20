@@ -3,4 +3,4 @@
   = stylesheet_link_tag :coach_application
 %h2.header-tab 担当生徒一覧
 .coach
-  = render partial: 'common/coach_student', collection: @rooms
+  = render partial: 'common/coach_student', collection: @rooms, locals: { lesson: @lesson }
