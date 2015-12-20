@@ -14,9 +14,14 @@ class Students::RoomsController < Students::StudentsController
     elsif room = Room.find_by(lesson_id: params[:lesson_id], student_id: current_user.id)
       redirect_to students_room_path(room), notice: "既に受講しています" and return
     end
+
     @lesson = Lesson.find(params[:lesson_id])
-    @room = Room.new
-    @room.lesson_id = params[:lesson_id]
+    if @lesson.is_unoccupied?
+      @room = Room.new
+      @room.lesson_id = params[:lesson_id]
+    else
+      redirect_to lesson_path(@lesson), notice: "この講座は既に定員に達しています。"
+    end
   end
 
   def create
