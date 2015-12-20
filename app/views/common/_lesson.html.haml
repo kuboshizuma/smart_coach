@@ -1,5 +1,5 @@
-= link_to lesson_path(lesson.id) do
+= link_to lesson_path(lesson.lesson.id) do
   .row-content
     .thumbnail-content
-      = image_tag("#{lesson.thumbnail}", size: "100x100")
-    %p#lesson #{ lesson.title }
+      = image_tag lesson.lesson.thumbnail, size: "100x100"
+    %p#lesson #{ lesson.lesson.title }
