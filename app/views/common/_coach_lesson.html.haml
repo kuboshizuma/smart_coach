@@ -1,8 +1,8 @@
 = link_to coaches_lesson_path(coach_lesson) do
   .row-content
     .thumbnail-content
-      = image_tag("#{coach_lesson.thumbnail}", size: "100x100")
+      = image_tag(coach_lesson.thumbnail, size: "100x100")
     %p#coach
-      = "#{coach_lesson.title}"
+      = coach_lesson.title
       = link_to "編集する", edit_coaches_lesson_path(coach_lesson.id)
       = link_to "削除する", coaches_lesson_path(coach_lesson.id), method: :delete
