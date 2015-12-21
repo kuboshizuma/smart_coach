@@ -15,4 +15,5 @@
     = render 'layouts/header'
     .container
       = yield
-    = render 'layouts/footer'
+    - unless controller.controller_name == "chat_messages"
+      = render 'layouts/footer'

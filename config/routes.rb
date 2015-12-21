@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   namespace :coaches do
     resources :lessons do
       resources :students, only: [:index, :show] do
-        resources :chat_messages, only: [:index, :create, :destroy], shallow: true
+        resources :chat_messages, only: [:index, :create, :destroy], shallow: true do
+          collection do
+            post 'pusher'
+          end
+        end
       end
     end
   end
@@ -19,7 +23,11 @@ Rails.application.routes.draw do
 
   namespace :students do
     resources :rooms do
-      resources :chat_messages, only: [:index, :create, :destroy], shallow: true
+      resources :chat_messages, only: [:index, :create, :destroy], shallow: true do
+        collection do
+          post 'pusher'
+        end
+      end
     end
   end
 

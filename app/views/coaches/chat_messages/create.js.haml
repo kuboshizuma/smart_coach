@@ -1,0 +1,6 @@
+var messagelog = $('#chat_messages');
+messagelog.empty();
+messagelog.append("#{escape_javascript(render(partial: 'common/chat_message', collection: @chat_messages))}")
+$('#messagelog').animate({scrollTop: $('#messagelog')[0].scrollHeight - 50}, 'fast');
+messagelog.css('opacity', '.4').animate({'opacity': '1'}, 'slow');
+
