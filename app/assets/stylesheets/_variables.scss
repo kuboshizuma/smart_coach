@@ -1,3 +1,18 @@
 $mainColor: #D13B40;
 $baseColor: #E6E3DB;
 
+@mixin thumbnail($width, $height) {
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+}
+
+@mixin btn($width:40%, $height:40px) {
+  width: $width;
+  height: $height;
+  background-color: $mainColor;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px 5%;
+}
