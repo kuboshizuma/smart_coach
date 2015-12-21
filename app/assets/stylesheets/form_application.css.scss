@@ -4,7 +4,6 @@
 .form-wrapper {
   margin: 0 auto;
   background-color: #fff;
-  width: 60%;
   margin-top: 30px;
 
   .form-title {
@@ -21,23 +20,75 @@
     .input-item {
       border: none;
       border-bottom: 2px solid $baseColor;
-      width: 50%;
-      margin: 20px;
+      width: 90%;
+      margin: 3%;
       padding: 5px;
       outline-style: none;
-
     }
-    #lesson_genre_id{
+    .label-item {
+      margin: 0 auto;
+      width: 90%;
+
+      label {
+        font-weight: normal;
+        display: block;
+        text-align: left;
+      }
+
+      label.center {
+        text-align: center;
+      }
+    }
+
+    .image-file {
+      background-image: url('noimage.jpg');
+      background-repeat: no-repeat ;
+      background-position: center center;
+      background-size: cover;
+      width: 90%;
+      height: 350px;
+      margin: 20px auto;
+    }
+    #lesson_thumbnail {
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #lesson_genre_id {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      margin: 20px;
-      width: 50%;
+      width: 100%;
+      border: none;
+      background-color: $baseColor;
+      height: 35px;
+      margin: 0;
+
+    }
+
+    select, input[type="time"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 10.5px;
+      width: 8%;
       border: none;
       background-color: $baseColor;
       height: 35px;
       padding: 5px;
     }
+
+    .week_time_delete {
+      height: 30px;
+      background-color: $mainColor;
+      color: #fff;
+      border: none;
+      margin: 20px;
+      font-size: 12px;
+      border-radius: 2px;
+    }
+
 
     .image-item {
       background: image-url("noimage.png") #000 no-repeat right;
