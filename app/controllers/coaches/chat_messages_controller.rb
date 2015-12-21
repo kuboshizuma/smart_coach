@@ -1,22 +1,31 @@
 class Coaches::ChatMessagesController < Coaches::CoachesController
   def index
     room = Room.find_by(lesson_id: params[:lesson_id], student_id: params[:student_id])
-    @chat_messages = ChatMessage.where(room_id: room.id).order(updated_at: :DESC)
+    @chat_messages = ChatMessage.where(room_id: room.id).includes(:talker)
     @chat_message = ChatMessage.new(room_id: room.id, talker_id: current_user.id)
 
     @lesson = Lesson.find(params[:lesson_id])
     @student = User.find(params[:student_id])
   end
 
-  def create
+  def pusher
     if chat_message = ChatMessage.create(chat_message_params)
+      room = Room.find(params[:chat_message][:room_id])
       Pusher["room_#{chat_message.room_id}"].trigger('chat_event', {
-        message: params[:chat_message][:message]
+        lesson_id: room.lesson_id,
+        student_id: room.student_id,
+        room_id: room.id,
+        chat_id: chat_message.id
       })
       render :text => 'OK', :status => 200
     else
       render :index
     end
+  end
+
+  def create
+    room = Room.find_by(lesson_id: params[:lesson_id], student_id: params[:student_id])
+    @chat_messages = ChatMessage.where(room_id: room.id).includes(:talker)
   end
 
   def destroy

@@ -1,4 +1,5 @@
 $(function() {
+  $('#messagelog').animate({scrollTop: $('#messagelog')[0].scrollHeight - 50}, 'fast');
   Pusher.log = function(message) {
     if (window.console && window.console.log) {
       window.console.log(message);
@@ -14,9 +15,13 @@ $(function() {
   channel.bind('chat_event', function(data) {
 
     $('#chat_message_message').val("");
-    var messagelog = document.getElementById('messagelog');
-    var messagep = document.createElement('p');
-    messagep.innerHTML = data.message;
-    messagelog.appendChild(messagep);
+    $.ajax({
+      url: "/coaches/lessons/" + data.lesson_id + "/students/" + data.student_id + "/chat_messages",
+      type: "POST",
+    });
+    $.ajax({
+      url: "/students/rooms/" + data.room_id + "/chat_messages",
+      type: "POST",
+    });
   });
 });
