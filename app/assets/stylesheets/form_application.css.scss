@@ -44,6 +44,7 @@
       background-image: url('noimage.jpg');
       background-repeat: no-repeat ;
       background-position: center center;
+      background-size: cover;
       width: 90%;
       height: 350px;
       margin: 20px auto;
@@ -79,7 +80,6 @@
     }
 
     .week_time_delete {
-      width: 4%;
       height: 30px;
       background-color: $mainColor;
       color: #fff;
