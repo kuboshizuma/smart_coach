@@ -1,7 +1,6 @@
 - content_for :head do
   = stylesheet_link_tag :chat_application
 
-%h2 メッセージ一覧
 %div{ id: 'messagelog', class: 'container', data: {key: ENV['PUSHER_ACCESS_KEY'], id: @chat_message.room_id} }
   #chat_messages
     = render partial: 'common/chat_message', collection: @chat_messages
