@@ -27,6 +27,13 @@ class Coaches::LessonsController < Coaches::CoachesController
 
     genres = Genre.all
     @genres = genres.map { |genre| [genre.name, genre.id] }
+    @genres_options = genres.map { |genre| [genre.name, genre.id] }
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+    @lesson.update(lesson_params)
+    redirect_to coaches_lessons_path
   end
 
   def destroy
