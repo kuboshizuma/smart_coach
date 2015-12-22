@@ -1,6 +1,9 @@
 @import "reset";
 @import "bootstrap-custom";
 @import "variables";
+@import "mmenu/jquery.mmenu";
+@import "mmenu/jquery.mmenu.positioning";
+@import "font-awesome";
 
 .clearfix {
   clear: both;
@@ -19,6 +22,10 @@ header {
   line-height: 60px;
   background-color: $mainColor;
   text-align: center;
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12),0px 4px 4px 0px rgba(0,0,0,0.24);
+  position: fixed;
+  opacity: 0.9;
+  z-index: 999;
 }
 
 h1, h2, h3, ul, p{
@@ -40,6 +47,7 @@ a {
 .container {
   padding-left: 0px;
   padding-right: 0px;
+  padding-top: 60px;
 }
 
 footer {
@@ -87,5 +95,23 @@ footer {
     font-size: 12px;
     padding: 0 0 10px;
     margin: 0;
+  }
+}
+
+// menu
+
+header {
+  #my-menu-button i {
+    position: absolute;
+    top: 14px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+  }
+}
+
+nav#my-menu {
+  li a {
+    padding: 20px 10px 20px 20px
   }
 }

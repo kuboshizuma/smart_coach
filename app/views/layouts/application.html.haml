@@ -12,8 +12,10 @@
   %body
     - flash.each do |key, value|
       = content_tag(:div, value, class: "#{key}")
-    = render 'layouts/header'
-    .container
-      = yield
-    - unless controller.controller_name == "chat_messages"
-      = render 'layouts/footer'
+    = render 'layouts/nav'
+    #wrap
+      = render 'layouts/header'
+      .container
+        = yield
+      - unless controller.controller_name == "chat_messages"
+        = render 'layouts/footer'

@@ -1,0 +1,11 @@
+%nav#my-menu
+  %ul
+    %li= link_to 'トップページ', root_path
+    - if user_signed_in?
+      - if current_user.is_coach?
+        %li= link_to "コーチ用マイページ", coaches_lessons_path
+      - else
+        %li= link_to "マイページ", students_rooms_path
+      %li= link_to "ログアウト", destroy_user_session_path
+    - else
+      %li= link_to "ログイン", user_session_path
