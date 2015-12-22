@@ -32,6 +32,7 @@ gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'pusher'
+gem "font-awesome-rails"
 
 # for bootstrap / install if needed
 gem 'therubyracer'
