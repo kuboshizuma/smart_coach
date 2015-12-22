@@ -11,9 +11,18 @@
   display: block;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: $baseColor;
   font-family: 'Lucida Grande',Verdana,Arial,'Hiragino Kaku Gothic Pro',Meiryo,'メイリオ',sans-serif;
+}
+
+#wrap {
+  height: 100%;
 }
 
 header {
