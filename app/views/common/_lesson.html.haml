@@ -5,8 +5,8 @@
     .article-right-box
       .article-right-top-box.clearfix
         %span.lesson-duration
-          2015.12.24 - 2015.12.30
+          #{lesson_start_time(lesson.start_day)} - #{lesson_finish_time(lesson.start_day, lesson.month)}
         %span.lesson-genre{ style: "color: #D13B40; border-color: #D13B40"}
           野球
       %p.lesson-title= lesson.title
-      %p.lesson-coach テストタロウ
+      %p.lesson-coach= lesson.coach.nickname
