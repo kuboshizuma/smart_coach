@@ -24,12 +24,13 @@
   height: 300px;
 
     .edit-btn {
-      @include btn(70px, 25px);
+      @include btn(64px, 25px);
       background-color: #8D8F90;
       border: solid 1px #fff;
       line-height: 25px;
       color: #fff;
       float: right;
+      font-size: 12px;
     }
 
     .profile-content {
