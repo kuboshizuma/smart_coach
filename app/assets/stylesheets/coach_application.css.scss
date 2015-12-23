@@ -70,3 +70,29 @@
       font-size: 16px;
     }
 }
+
+.btns {
+  float: right;
+  margin: 5px 5%;
+  .edit-btn {
+    @include btn(53px, 23px);
+    margin: 1px 5%;
+    border: #D13B40 thin solid;
+    background-color: #fff;
+    padding: 1px;
+
+    a {
+      color: #D13B40;
+      font-size: 11px;
+      font-weight: 100;
+      }
+  }
+}
+
+h2.lesson-students {
+    margin: 15px;
+    font-weight: bold;
+    line-height: 140%;
+    font-size: 17px;
+    color: #666;
+}
