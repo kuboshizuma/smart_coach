@@ -20,19 +20,23 @@
     .input-item {
       border: none;
       border-bottom: 2px solid $baseColor;
-      width: 90%;
-      margin: 3%;
-      padding: 5px;
+      width: 100%;
+      margin: 3% 0;
+      padding: 5px 0;
       outline-style: none;
+      &.input-text-area {
+        height: 180px;
+      }
     }
     .label-item {
-      margin: 0 auto;
+      margin: 20px auto 0;
       width: 90%;
 
       label {
         font-weight: normal;
         display: block;
         text-align: left;
+        margin: 0;
       }
 
       label.center {

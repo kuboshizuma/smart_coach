@@ -1,6 +1,6 @@
 class Coaches::LessonsController < Coaches::CoachesController
   def index
-    @lessons = Lesson.order(updated_at: :DESC)
+    @lessons = Lesson.where(coach_id: current_user.id).order(updated_at: :DESC)
     @user = User.find_by(params[:user_id])
   end
 
@@ -48,6 +48,6 @@ class Coaches::LessonsController < Coaches::CoachesController
     params[:lesson][:lesson_shifts_attributes].each_value do |shift|
       shift_minutes += ((Time.parse(shift[:finish_time]) - Time.parse(shift[:start_time])).to_i / 60).to_i
     end
-    params.require(:lesson).permit(:title, :description, :genre_id, :thumbnail, :start_day, :month, lesson_shifts_attributes: [:weekday, :start_time, :finish_time]).merge(shift_minutes: shift_minutes)
+    params.require(:lesson).permit(:title, :genre_id, :thumbnail, :start_day, :month, :desc_goal, :desc_who, :desc_what, :desc_other, lesson_shifts_attributes: [:weekday, :start_time, :finish_time]).merge(shift_minutes: shift_minutes, coach_id: current_user.id)
   end
 end
