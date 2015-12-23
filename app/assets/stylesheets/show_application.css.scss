@@ -157,3 +157,16 @@ body {
       }
    }
 }
+
+.chat-btn {
+  @include btn(60%, 40px);
+  padding: 2px;
+  text-align: center;
+  margin: 0 auto 30px;
+}
+
+p.chat-btn {
+  color: #fff;
+  line-height: 40px;
+  font-size: 17px;
+}

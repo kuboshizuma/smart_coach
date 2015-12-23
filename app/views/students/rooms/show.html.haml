@@ -1,8 +1,25 @@
-%h2 受講コース
-%p
-  = image_tag @lesson.thumbnail.thumb.url
-  = "タイトル: #{@lesson.title}"
-  = "内容: #{@lesson.description}"
-  = "ジャンル: #{@lesson.genre.name}"
+- content_for :head do
+  = stylesheet_link_tag :show_application
+.show-wrapper
+  = image_tag "phone.png", class: 'thumbnail-item'
+  .item-container
+    %span.genre-btn
+      = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id)
+    %p.main-title= @lesson.title
 
-= link_to "チャット", students_room_chat_messages_path(@room)
+    = link_to students_room_chat_messages_path(@room) do
+      %p.chat-btn チャットを始める
+
+  .lesson-info
+    .sub-title
+      %p レッスン情報
+    %table.table-content
+      %tr
+        %td.table-title 申し込み期限
+        %td 2015/12/25
+      %tr
+        %td.table-title 現在の受講者
+        %td 1人
+      %tr
+        %td.table-title 今までの受講者
+        %td 10人
