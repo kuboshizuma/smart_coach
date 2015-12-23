@@ -18,15 +18,24 @@
         %li 今までの受講者: 190人
 
   .coach-content
-    = image_tag @lesson.coach.avatar, size: "50x50", class: 'avatar-item'
+    = image_tag @lesson.coach.avatar || "noimage.jpg", size: "50x50", class: 'avatar-item'
     %p.coach-name #{ @lesson.coach.nickname }
     .triangle
     %p.coach-description
       宜しくお願いします！
   .lesson-content
-    %p.main-title こんなことやります
+    %p.main-title 何が出来るようになるか
     .description-content
-      %p #{@lesson.description}"
+      %p #{@lesson.desc_goal}
+    %p.main-title どういう人が対象か
+    .description-content
+      %p #{@lesson.desc_who}
+    %p.main-title 何をするのか
+    .description-content
+      %p #{@lesson.desc_what}
+    %p.main-title その他
+    .description-content
+      %p #{@lesson.desc_other}
 
   .lesson-info
     .sub-title

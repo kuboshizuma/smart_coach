@@ -4,10 +4,24 @@
   %h2.form-title レッスンの新規作成
   .item-container
     = form_for @lesson, url: { controller: "coaches/lessons" } do |f|
-      = f.text_field :title, placeholder: "タイトル", class: 'input-item', required: true
-      = f.text_area :description, placeholder: "内容", class: 'input-item', required: true
       .label-item
-        = f.label :ジャンル
+        = f.label :title, "タイトル"
+        = f.text_field :title, placeholder: "必須", class: 'input-item input-text', required: true
+      .label-item
+        = f.label :desc_goal, "何が出来るようになるのか"
+        = f.text_area :desc_goal, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_who, "どういう人が対象か"
+        = f.text_area :desc_who, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_what, "何をするのか"
+        = f.text_area :desc_what, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_other, "その他"
+        = f.text_area :desc_other, placeholder: "任意", class: 'input-item input-text-area', required: false
+
+      .label-item
+        = f.label :genre_id, "ジャンル"
         = f.select :genre_id, @genres_options
       .image-file
         = f.file_field :thumbnail
