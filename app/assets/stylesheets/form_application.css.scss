@@ -59,6 +59,12 @@
       width: 100%;
     }
 
+    .imgView {
+      position: relative;
+      bottom: 350px;
+      visibility: hidden;
+    }
+
     #lesson_genre_id {
       -webkit-appearance: none;
       -moz-appearance: none;

@@ -23,8 +23,9 @@
       .label-item
         = f.label :genre_id, "ジャンル"
         = f.select :genre_id, @genres_options
-      .image-file
+      .image-file.imgInput
         = f.file_field :thumbnail
+        = image_tag "", width: "100%", height: "350px", class: "imgView"
       .label-item
         = f.label :レッスンを開講する期間を選択してください, class: 'center'
       = raw sprintf( f.date_select( :start_day, date_separator: '%s'), '年', '月') + '日から'
@@ -52,3 +53,38 @@
       $("#week_time_" + week_id).remove();
     });
   });
+
+  $(function(){
+    var setFileInput = $('.imgInput'),
+    setFileImg = $('.imgView');
+
+    setFileInput.each(function(){
+        var selfFile = $(this),
+        selfInput = $(this).find('input[type=file]'),
+        prevElm = selfFile.find(setFileImg),
+        orgPass = prevElm.attr('src');
+
+        selfInput.change(function(){
+            var file = $(this).prop('files')[0],
+            fileRdr = new FileReader();
+            setFileImg = $('.imgView');
+
+            setFileImg.css('visibility', 'visible');
+            if (!this.files.length){
+                prevElm.attr('src', orgPass);
+                return;
+            } else {
+                if (!file.type.match('image.*')){
+                    prevElm.attr('src', orgPass);
+                    return;
+                } else {
+                    fileRdr.onload = function() {
+                        prevElm.attr('src', fileRdr.result);
+                    }
+                    fileRdr.readAsDataURL(file);
+                }
+            }
+        });
+    });
+  });
+
