@@ -1,5 +1,12 @@
-= link_to lesson_path(lesson.id) do
+= link_to lesson_path(lesson.id), class: "article-box" do
   .row-content
-    .thumbnail-content
-      = image_tag lesson.thumbnail, size: "100x100"
-    %p#lesson #{ lesson.title }
+    .article-thumbnail
+      %span{ style: "background-image: url(#{lesson.thumbnail});"}
+    .article-right-box
+      .article-right-top-box.clearfix
+        %span.lesson-duration
+          2015.12.24 - 2015.12.30
+        %span.lesson-genre{ style: "color: #D13B40; border-color: #D13B40"}
+          野球
+      %p.lesson-title= lesson.title
+      %p.lesson-coach テストタロウ
