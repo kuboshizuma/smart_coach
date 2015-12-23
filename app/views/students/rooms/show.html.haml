@@ -1,10 +1,10 @@
 - content_for :head do
   = stylesheet_link_tag :show_application
 .show-wrapper
-  = image_tag "phone.png", class: 'thumbnail-item'
+  = image_tag @lesson.thumbnail, class: 'thumbnail-item'
   .item-container
-    %span.genre-btn
-      = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id)
+    %span.genre-btn{ style: "border-color: ##{@lesson.genre.color}"}
+      = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
     %p.main-title= @lesson.title
 
     = link_to students_room_chat_messages_path(@room) do
