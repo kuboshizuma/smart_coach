@@ -13,9 +13,9 @@
         .twitter
         .line
       %ul.apply-info
-        %li 申し込み期限: 2015/12/25
-        %li 現在の受講者: 1人
-        %li 今までの受講者: 190人
+        %li 申し込み期限: #{lesson_apply_limit(@lesson.start_day, @lesson.month)}
+        %li 現在の受講者: #{@lesson.student_sum}人
+        %li 受講定員: #{@lesson.lesson_limit}人
 
   .coach-content
     = image_tag @lesson.coach.avatar || "noimage.jpg", size: "50x50", class: 'avatar-item'
@@ -46,7 +46,7 @@
         %td= @lesson.genre.name
       %tr
         %td.table-title 日程
-        %td= "#{ @lesson.start_day } ~ #{ @lesson.finish_day }"
+        %td= "#{ lesson_start_time(@lesson.start_day) } ~ #{ lesson_finish_time(@lesson.start_day, @lesson.month) }"
       %tr
         %td.table-title コーチ
         %td= @lesson.coach.nickname

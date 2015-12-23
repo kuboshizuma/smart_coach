@@ -11,6 +11,11 @@ module ApplicationHelper
     (start_day + month.month).strftime('%Y.%m.%d') if start_day.present? && month.present?
   end
 
+  def lesson_apply_limit(start_day, month)
+    (start_day + (month - 1).month).strftime('%Y.%m.%d') if start_day.present? && month.present?
+  end
+
+
   def flash_class_for(flash_type)
     case flash_type
     when 'success' then 'alert-success'
