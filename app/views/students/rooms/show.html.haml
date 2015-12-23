@@ -4,13 +4,11 @@
   = image_tag "phone.png", class: 'thumbnail-item'
   .item-container
     %span.genre-btn
-      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id)
+      = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id)
     %p.main-title #{ @lesson.title }
 
     = link_to students_room_chat_messages_path(@room) do
       %p.chat-btn チャットを始める
-
-    / %a{ href: "/students/rooms/:id/chat_messages" }
 
   .lesson-info
     .sub-title
