@@ -26,7 +26,6 @@ class Coaches::LessonsController < Coaches::CoachesController
     @lesson = Lesson.find(params[:id])
 
     genres = Genre.all
-    @genres = genres.map { |genre| [genre.name, genre.id] }
     @genres_options = genres.map { |genre| [genre.name, genre.id] }
   end
 
