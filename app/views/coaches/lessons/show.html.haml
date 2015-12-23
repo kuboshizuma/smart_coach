@@ -19,22 +19,18 @@
 
   %h2.lesson-students 受講中の生徒
   - @rooms.each do |room|
+
     = link_to coaches_lesson_student_path(@lesson, room.student) do
-
-      %p
-        = room.student.email
-        = image_tag room.student.avatar
-
-    .article-thumbnail
-      %span{ style: "background-image: url(#{room.student.avatar});"}
-      .article-right-box
-        .article-right-top-box.clearfix
-          %span.lesson-duration
-            2015.12.24 - 2015.12.30
-          %span.lesson-genre{ style: "color: #D13B40; border-color: #D13B40"}
-            野球
-        %p.lesson-title= @lesson.title
-        %p.lesson-coach テストタロウ
+      .row-content
+        .article-thumbnail
+          %span{ style: "background-image: url(#{room.student.avatar});"}
+        .article-right-box
+          .article-right-top-box.clearfix
+            %span.lesson-duration
+              2015.12.24 - 2015.12.30
+            %span.lesson-genre{ style: "color: #D13B40; border-color: #D13B40"}
+              受講中
+            %p.lesson-title#student-name= room.student.nickname
 
   %p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
 
