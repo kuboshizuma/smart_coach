@@ -118,10 +118,11 @@ user9.save!
 
 
 #### == Genre == ####
-genre1 = Genre.where(name: "野球").first_or_create
-genre2 = Genre.where(name: "陸上").first_or_create
-genre3 = Genre.where(name: "テニス").first_or_create
-genre4 = Genre.where(name: "サッカー").first_or_create
+
+genre1 = Genre.where(name: "野球", color: "F66B51").first_or_create
+genre2 = Genre.where(name: "陸上", color: "FFCB6B").first_or_create
+genre3 = Genre.where(name: "テニス", color: "B6D56D").first_or_create
+genre4 = Genre.where(name: "サッカー", color: "61CBC1").first_or_create
 
 
 #### == Lesson == ####
