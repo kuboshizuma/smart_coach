@@ -1,19 +1,21 @@
-%h2 レッスンの個別ページ
-%p
-  = image_tag @lesson.thumbnail.thumb.url
-  = "タイトル: #{@lesson.title}"
-  = "内容: #{@lesson.description}"
-  = "ジャンル: #{@lesson.genre.name}"
-  = link_to "編集する", edit_coaches_lesson_path(@lesson.id)
-  = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
+- content_for :head do
+  = stylesheet_link_tag :show_application
+  = stylesheet_link_tag :coach_application
+.show-wrapper
+  = image_tag "phone.png", class: 'thumbnail-item'
+  .btns
+    .edit-btn
+      = link_to "編集する", edit_coaches_lesson_path(@lesson.id)
+    .edit-btn
+      = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
+  .item-container
+    %span.genre-btn
+      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id)
+    %p.main-title #{ @lesson.title }
 
-%h2 受け持ち生徒
-%p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
-- @rooms.each do |room|
-  = link_to coaches_lesson_student_path(@lesson, room.student) do
-    %p
-      = room.student.email
-      = image_tag room.student.avatar
+  .student
+    .student-content
+      .student-avatar
 
   %h2.lesson-students 受講中の生徒
   - @rooms.each do |room|
