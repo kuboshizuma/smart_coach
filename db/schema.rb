@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223085701) do
+ActiveRecord::Schema.define(version: 20151223094452) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text     "message",      limit: 65535
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 20151223085701) do
     t.datetime "updated_at",                              null: false
     t.string   "thumbnail",     limit: 255
     t.date     "start_day"
-    t.date     "finish_day"
     t.integer  "shift_minutes", limit: 4
     t.integer  "student_sum",   limit: 4,     default: 0
     t.text     "desc_goal",     limit: 65535
     t.text     "desc_who",      limit: 65535
     t.text     "desc_what",     limit: 65535
     t.text     "desc_other",    limit: 65535
+    t.integer  "month",         limit: 4
   end
 
   create_table "rooms", force: :cascade do |t|

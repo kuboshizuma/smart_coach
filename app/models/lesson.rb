@@ -1,5 +1,4 @@
 class Lesson < ActiveRecord::Base
-  attr_accessor :month
 
   belongs_to :genre
   belongs_to :coach, class_name: "User"
