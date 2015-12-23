@@ -17,6 +17,7 @@ user1.introduce = "i am admin"
 user1.belong = "admin"
 user1.twitter = "https://twitter.com/fcbarcelona_jp"
 user1.facebook = "https://www.facebook.com/techcampp/"
+user1.user_type = 3
 user1.skip_confirmation!
 user1.save!
 
@@ -29,6 +30,7 @@ user2.introduce = "よろしくお願いします。"
 user2.belong = "阪神タイガース"
 user2.twitter = "https://twitter.com/fcbarcelona_jp"
 user2.facebook = "https://www.facebook.com/techcampp/"
+user2.user_type = 1
 user2.skip_confirmation!
 user2.save!
 
@@ -41,6 +43,7 @@ user3.introduce = "よろしくお願いします。"
 user3.belong = "大阪ガス"
 user3.twitter = "https://twitter.com/fcbarcelona_jp"
 user3.facebook = "https://www.facebook.com/techcampp/"
+user3.user_type = 1
 user3.skip_confirmation!
 user3.save!
 
@@ -53,6 +56,7 @@ user4.introduce = "よろしくお願いします。"
 user4.belong = "テニス部"
 user4.twitter = "https://twitter.com/fcbarcelona_jp"
 user4.facebook = "https://www.facebook.com/techcampp/"
+user4.user_type = 1
 user4.skip_confirmation!
 user4.save!
 
@@ -65,6 +69,7 @@ user5.introduce = "よろしくお願いします。"
 user5.belong = "日本代表"
 user5.twitter = "https://twitter.com/fcbarcelona_jp"
 user5.facebook = "https://www.facebook.com/techcampp/"
+user5.user_type = 1
 user5.skip_confirmation!
 user5.save!
 
@@ -77,6 +82,7 @@ user6.introduce = "よろしくお願いします。"
 user6.belong = "東京高校野球部"
 user6.twitter = "https://twitter.com/fcbarcelona_jp"
 user6.facebook = "https://www.facebook.com/techcampp/"
+user6.user_type = 0
 user6.skip_confirmation!
 user6.save!
 
@@ -89,6 +95,7 @@ user7.introduce = "よろしくお願いします。"
 user7.belong = "神奈川高校陸上部"
 user7.twitter = "https://twitter.com/fcbarcelona_jp"
 user7.facebook = "https://www.facebook.com/techcampp/"
+user7.user_type = 0
 user7.skip_confirmation!
 user7.save!
 
@@ -101,6 +108,7 @@ user8.introduce = "よろしくお願いします。"
 user8.belong = "札幌高校テニス部"
 user8.twitter = "https://twitter.com/fcbarcelona_jp"
 user8.facebook = "https://www.facebook.com/techcampp/"
+user8.user_type = 0
 user8.skip_confirmation!
 user8.save!
 
@@ -113,6 +121,7 @@ user9.introduce = "よろしくお願いします。"
 user9.belong = "福岡高校サッカー部"
 user9.twitter = "https://twitter.com/fcbarcelona_jp"
 user9.facebook = "https://www.facebook.com/techcampp/"
+user9.user_type = 0
 user9.skip_confirmation!
 user9.save!
 
