@@ -5,7 +5,7 @@
   .item-container
     %span.genre-btn
       = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id)
-    %p.main-title #{ @lesson.title }
+    %p.main-title= @lesson.title
 
     = link_to students_room_chat_messages_path(@room) do
       %p.chat-btn チャットを始める
