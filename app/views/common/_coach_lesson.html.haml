@@ -1,0 +1,12 @@
+= link_to coaches_lesson_path(lesson.id), class: "article-box" do
+  .row-content
+    .article-thumbnail
+      %span{ style: "background-image: url(#{lesson.thumbnail});"}
+    .article-right-box
+      .article-right-top-box.clearfix
+        %span.lesson-duration
+          #{lesson_start_time(lesson.start_day)} - #{lesson_finish_time(lesson.start_day, lesson.month)}
+        %span.lesson-genre{ style: "color: #D13B40; border-color: #D13B40"}
+          野球
+      %p.lesson-title= lesson.title
+      %p.lesson-coach= lesson.coach.nickname

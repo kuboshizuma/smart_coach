@@ -27,4 +27,4 @@
 
 %h2.header-tab 担当レッスン一覧
 .coach
-  = render partial: 'common/lesson', collection: @lessons
+  = render partial: 'common/coach_lesson', collection: @lessons, as: 'lesson'

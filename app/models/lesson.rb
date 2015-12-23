@@ -11,4 +11,8 @@ class Lesson < ActiveRecord::Base
   def is_unoccupied?
     shift_minutes > (student_sum + 1) * 2 * 60
   end
+
+  def lesson_limit
+    (shift_minutes / 2 / 60).ceil
+  end
 end
