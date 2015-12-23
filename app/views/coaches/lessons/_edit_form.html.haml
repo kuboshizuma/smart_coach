@@ -1,5 +1,7 @@
 - content_for :head do
   = stylesheet_link_tag :form_application
+  = javascript_include_tag :preview
+
 .form-wrapper
   %h2.form-title レッスンの編集
   .item-container
@@ -23,8 +25,10 @@
       .label-item
         = f.label :ジャンル
         = f.select :genre_id, @genres_options
-      .image-file
+      .image-file.imgInput
         = f.file_field :thumbnail
+        = image_tag "", width: "100%", height: "350px", class: "imgView"
+
       .label-item
         = f.label :レッスンを開講する期間を選択してください, class: 'center'
       = raw sprintf( f.date_select( :start_day, date_separator: '%s'), '年', '月') + '日から'
