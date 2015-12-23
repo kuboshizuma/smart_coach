@@ -1,6 +1,7 @@
 class Coaches::LessonsController < Coaches::CoachesController
   def index
     @lessons = Lesson.order(updated_at: :DESC)
+    @user = User.find_by(params[:user_id])
   end
 
   def show
