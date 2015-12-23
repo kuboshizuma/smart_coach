@@ -15,4 +15,15 @@ class Lesson < ActiveRecord::Base
   def lesson_limit
     (shift_minutes / 2 / 60).ceil
   end
+
+  def during_lesson(student_id, new_start_day)
+    latest_room = Room.where(student_id: student_id, lesson_id: id).order(created_at: :DESC).first
+    return latest_room if latest_room.blank?
+
+    if latest_room.start_day + 1.month < new_start_day
+      return latest_room
+    else
+      return false
+    end
+  end
 end
