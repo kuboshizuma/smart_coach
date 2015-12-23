@@ -3,7 +3,8 @@
     %h3 レッスンジャンル一覧
     %ul.clearfix
       - @genres.each do |genre|
-        %li #{ genre.name }
+        = link_to lessons_genre_path(genre) do
+          %li= genre.name
   .footer_list_box
     %h3 サイト情報
     %ul.clearfix
