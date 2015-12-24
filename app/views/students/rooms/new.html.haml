@@ -1,3 +1,11 @@
-%h2 レッスンを受講する
-= @lesson.title
-= render "form"
+- content_for :head do
+  = stylesheet_link_tag :show_application
+  = stylesheet_link_tag :form_application
+.show-wrapper
+  = image_tag @lesson.thumbnail, class: 'thumbnail-item'
+  .item-container
+    %span.genre-btn{ style: "border-color: ##{@lesson.genre.color}"}
+      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
+    %p.main-title #{ @lesson.title }
+    %h3.apply-title 受講する期間を選択してください
+    = render "form"

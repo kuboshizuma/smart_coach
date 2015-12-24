@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223153009) do
+ActiveRecord::Schema.define(version: 20151224051835) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text     "message",      limit: 65535
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20151223153009) do
     t.datetime "updated_at",                       null: false
     t.integer  "repeat",     limit: 4, default: 1
     t.date     "start_day"
+    t.integer  "month",      limit: 4, default: 2
   end
 
   create_table "users", force: :cascade do |t|
