@@ -20,7 +20,7 @@ class Students::RoomsController < Students::StudentsController
       redirect_to students_room_path(latest_room), notice: "登録済みの受講期間とかぶります。" and return
     end
     if Room.create(room_params)
-      redirect_to action: :index
+      redirect_to action: :index, notice: "受講手続きが完了しました。"
     else
       render :new
     end
