@@ -41,6 +41,15 @@ body {
     color: #666;
   }
 
+  .apply-title {
+    margin: 40px 0 8px;
+    line-height: 140%;
+    font-size: 17px;
+    color: #666;
+  }
+
+
+
 
   .genre-btn {
     @include btn(50px, 20px);
