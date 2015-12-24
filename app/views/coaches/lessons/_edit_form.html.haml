@@ -1,16 +1,34 @@
 - content_for :head do
   = stylesheet_link_tag :form_application
+  = javascript_include_tag :preview
+
 .form-wrapper
   %h2.form-title レッスンの編集
   .item-container
     = form_for @lesson, url: { controller: "coaches/lessons", action: 'update' } do |f|
-      = f.text_field :title, placeholder: "タイトル", class: 'input-item', required: true
-      = f.text_area :description, placeholder: "内容", class: 'input-item', required: true
+      .label-item
+        = f.label :title, "タイトル"
+        = f.text_field :title, placeholder: "必須", class: 'input-item input-text', required: true
+      .label-item
+        = f.label :desc_goal, "何が出来るようになるのか"
+        = f.text_area :desc_goal, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_who, "どういう人が対象か"
+        = f.text_area :desc_who, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_what, "何をするのか"
+        = f.text_area :desc_what, placeholder: "必須", class: 'input-item input-text-area', required: true
+      .label-item
+        = f.label :desc_other, "その他"
+        = f.text_area :desc_other, placeholder: "任意", class: 'input-item input-text-area', required: false
+
       .label-item
         = f.label :ジャンル
         = f.select :genre_id, @genres_options
-      .image-file
+      .image-file.imgInput
         = f.file_field :thumbnail
+        = image_tag "", width: "100%", height: "350px", class: "imgView"
+
       .label-item
         = f.label :レッスンを開講する期間を選択してください, class: 'center'
       = raw sprintf( f.date_select( :start_day, date_separator: '%s'), '年', '月') + '日から'
