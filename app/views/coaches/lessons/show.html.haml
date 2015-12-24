@@ -13,10 +13,6 @@
       = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id)
     %p.main-title #{ @lesson.title }
 
-  .student
-    .student-content
-      .student-avatar
-
   %h2.lesson-students 受講中の生徒
   - @rooms.each do |room|
 
