@@ -1,7 +1,12 @@
-= link_to lesson_path(student_room.id) do
+= link_to students_room_path(student_room.id), class: "article-box" do
   .row-content
-    .thumbnail-content
-      = image_tag student_room.lesson.thumbnail, size: "100x100"
-    %p#lesson #{ student_room.lesson.title }
-    %p 受講期間: #{ student_room.start_day } ~ #{ student_room.start_day + 1.month }
-    %p ジャンル: #{ student_room.lesson.genre.name }
+    .article-thumbnail
+      %span{ style: "background-image: url(#{student_room.lesson.thumbnail});"}
+    .article-right-box
+      .article-right-top-box.clearfix
+        %span.lesson-duration
+          #{lesson_start_time(student_room.lesson.start_day)} - #{lesson_finish_time(student_room.lesson.start_day, student_room.lesson.month)}
+        %span.lesson-genre{ style: "color: ##{student_room.lesson.genre.color}; border-color: ##{student_room.lesson.genre.color}"}
+          = student_room.lesson.genre.name
+      %p.lesson-title= student_room.lesson.title
+      %p.lesson-coach= student_room.lesson.coach.nickname

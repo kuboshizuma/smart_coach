@@ -2,7 +2,7 @@ class Students::RoomsController < Students::StudentsController
   before_action :validate_before_create, only: [:new, :create]
 
   def index
-    @rooms = Room.where(student_id: current_user.id).order(updated_at: :DESC).includes(:lesson)
+    @rooms = Room.where(student_id: current_user.id).order(updated_at: :DESC).includes(lesson: :genre)
   end
 
   def show
