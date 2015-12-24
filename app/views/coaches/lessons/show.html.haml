@@ -9,13 +9,9 @@
     .edit-btn
       = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
   .item-container
-    %span.genre-btn
-      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id)
+    %span.genre-btn{ style: "color: ##{@lesson.genre.color}; border-color: ##{@lesson.genre.color}"}
+      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
     %p.main-title #{ @lesson.title }
-
-  .student
-    .student-content
-      .student-avatar
 
   %h2.lesson-students 受講中の生徒
   - @rooms.each do |room|
