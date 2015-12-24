@@ -1,6 +1,7 @@
-
 - content_for :head do
   = stylesheet_link_tag :form_application
+  = javascript_include_tag :preview
+
 .form-wrapper
   %h2.form-title 新規登録
   .item-container
@@ -21,8 +22,10 @@
         = f.label :password_confirmation
         %br/
         = f.password_field :password_confirmation, autocomplete: "off", class: 'input-item'
-      .field.image-file
+      .field.image-file.imgInput
         = f.file_field :avatar
+        = image_tag "", width: "100%", height: "350px", class: "imgView"
+
       .actions
         = f.submit "登録", class: 'form-btn'
 
