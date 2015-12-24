@@ -18,7 +18,9 @@ class Coaches::LessonsController < Coaches::CoachesController
   end
 
   def create
-    unless Lesson.create(lesson_params)
+    if Lesson.create(lesson_params)
+      redirect_to action: :index
+    else
       render :new
     end
   end
