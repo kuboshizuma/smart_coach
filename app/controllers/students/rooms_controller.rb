@@ -13,6 +13,10 @@ class Students::RoomsController < Students::StudentsController
   def new
     @room = Room.new
     @room.lesson_id = params[:lesson_id]
+
+    lesson = Lesson.find(params[:lesson_id])
+    month = ((lesson.start_day.to_time + (lesson.month).month) - Time.now).divmod(24*60*60*30)
+    @month_option = Array.new(month[0]){ |i| i + 1 }
   end
 
   def create
