@@ -124,6 +124,12 @@ genre2 = Genre.where(name: "陸上", color: "FFCB6B").first_or_create
 genre3 = Genre.where(name: "テニス", color: "B6D56D").first_or_create
 genre4 = Genre.where(name: "サッカー", color: "61CBC1").first_or_create
 
+#### == Room == ####
+
+room1 = Room.where(student_id: 1, lesson_id: 1, repeat: 1, start_day: Date.parse('2015-12-27 12:00'), month: 2).first_or_create
+room2 = Room.where(student_id: 5, lesson_id: 2, repeat: 1, start_day: Date.parse('2015-12-27 12:00'), month: 2).first_or_create
+room3 = Room.where(student_id: 6, lesson_id: 3, repeat: 1, start_day: Date.parse('2015-12-27 12:00'), month: 2).first_or_create
+
 
 #### == Lesson == ####
 Lesson.create(
