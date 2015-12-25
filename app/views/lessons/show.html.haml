@@ -29,7 +29,7 @@
         %li 受講定員: #{@lesson.lesson_limit}人
     .triangle
     %p.coach-description
-      宜しくお願いします！
+      = @lesson.coach.introduce
   .lesson-content
     %p.main-title 何が出来るようになるか
     .description-content
