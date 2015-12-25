@@ -7,18 +7,26 @@
       = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
     %p.main-title #{ @lesson.title }
     .clearfix
-      .sns-btns
-        .facebook
-        .twitter
-        .line
+      %ul.sc-btn
+        %li.sc-li
+          = link_to "http://line.me/R/msg/text/?LINE%E3%81%A7%E9%80%81%E3%82%8B%0D%0Ahttp%3A%2F%2Fline.me%2F" do
+            = image_tag "linebutton.png", size: "30x30", alt: "LINEに送る"
+
+        %li.fb-root
+          .fb-like{"data-action" => "like", "data-href" => "https://developers.facebook.com/docs/plugins/", "data-layout" => "button", "data-share" => "false", "data-show-faces" => "true", "data-width" => "30px"}
+
+        %li.sc-tw
+          %a.twitter-share-button{href: "https://twitter.com/share"}
+            Tweet
+
+  .coach-content
+    .clearfix
+      = image_tag @lesson.coach.avatar || "noimage.jpg", size: "50x50", class: 'avatar-item'
+      %p.coach-name #{ @lesson.coach.nickname }
       %ul.apply-info
         %li 申し込み期限: #{lesson_apply_limit(@lesson.start_day, @lesson.month)}
         %li 現在の受講者: #{@lesson.student_sum}人
         %li 受講定員: #{@lesson.lesson_limit}人
-
-  .coach-content
-    = image_tag @lesson.coach.avatar || "noimage.jpg", size: "50x50", class: 'avatar-item'
-    %p.coach-name #{ @lesson.coach.nickname }
     .triangle
     %p.coach-description
       宜しくお願いします！
@@ -53,3 +61,18 @@
   .clearfix
     = link_to new_students_room_path(lesson_id: @lesson.id) do
       %p.apply-btn 受講する
+
+
+:javascript
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+  (document, 'script', 'facebook-jssdk'));
+
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
