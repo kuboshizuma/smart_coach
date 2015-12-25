@@ -196,3 +196,52 @@ nav#my-menu {
 
 }
 
+.profile {
+  background-color: #3A3F51;
+  height: 300px;
+
+  .profile-content {
+    margin: 100px 5%;
+    width: 50%;
+
+    .profile-avatar img {
+      border-radius: 30px;
+    }
+
+    h2.profile-nickname {
+      color: #fff;
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    p.profile-member {
+      color: #fff;
+      margin-top: 10px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .profile-lesson {
+      height: 60px;
+      margin-top: 5px;
+
+      .profile-lesson-info {
+        height: 50px;
+        min-width: 32%;
+        display: inline-block;
+        float: left;
+        padding: 2px;
+        h5 {
+          font-size: 11px;
+          text-align: center;
+          color: #95D9EE;
+
+          span {
+            font-size: 25px;
+            color: #23B7E5;
+          }
+        }
+      }
+    }
+  }
+}
+
