@@ -192,4 +192,17 @@ p.chat-btn {
   font-size: 17px;
 }
 
+.apply-btn-fixed {
+  @include btn(100%);
+  padding-top: 10px;
+  color: #fff;
+  font-size: 15px;
+  position: fixed;
+  bottom: 0px;
+  margin: 0;
+  height: 50px;
+  line-height: 35px;
+}
+
+
 

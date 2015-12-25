@@ -17,5 +17,10 @@
         - flash.each do |key, value|
           = content_tag(:div, value, class: "#{flash_class_for(key)} alert")
         = yield
+      - if controller.controller_name == "lessons" && controller.action_name
+        .clearfix
+          = link_to new_students_room_path(lesson_id: @lesson.id) do
+            %p.apply-btn-fixed 受講する
+
       - unless controller.controller_name == "chat_messages"
         = render 'layouts/footer'
