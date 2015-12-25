@@ -1,6 +1,21 @@
 - content_for :head do
   = stylesheet_link_tag :top_application
   = stylesheet_link_tag :lesson_application
+
+.profile.clearfix
+  .profile-content
+    .profile-avatar
+      = image_tag current_user.avatar, size: '60x60'
+    %h2.profile-nickname
+      = current_user.nickname
+    %p.profile-member
+      = current_user.belong
+    .profile-lesson
+      .profile-lesson-info
+        %h5
+          %span
+            = @rooms.count
+          lessons
 %h2.header-tab 受講コース一覧
 .lesson
   = render partial: 'common/student_room', collection: @rooms
