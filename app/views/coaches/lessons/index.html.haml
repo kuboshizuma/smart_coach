@@ -3,24 +3,24 @@
   = stylesheet_link_tag :coach_application
 
 .profile.clearfix
-  .edit-btn
-    編集する
   .profile-content
     .profile-avatar
-      = image_tag current_user.avatar, size: '55x55'
+      = image_tag current_user.avatar, size: '60x60'
     %h2.profile-nickname
       = current_user.nickname
     %p.profile-member
-      ◯◯高校野球部顧問
+      = current_user.belong
     .profile-lesson
       .profile-lesson-info
         %h5
-          %span 3
-          レッスン
+          %span
+            = @lessons.count
+          lessons
       .profile-lesson-info
         %h5
-          %span 3
-          生徒
+          %span
+            = total_students(@lessons)
+          students
 
 .lesson-btn
   = link_to "レッスンの新規作成", new_coaches_lesson_path

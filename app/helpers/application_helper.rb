@@ -15,6 +15,14 @@ module ApplicationHelper
     (start_day + (month - 1).month).strftime('%Y.%m.%d') if start_day.present? && month.present?
   end
 
+  def total_students(lessons)
+    total = 0
+    lessons.each do |l|
+      total += l.student_sum
+    end
+    return total
+  end
+
 
   def flash_class_for(flash_type)
     case flash_type

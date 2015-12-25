@@ -5,22 +5,16 @@
 }
 
 .profile {
-  background-color: #8D8F90;
+  background-color: #3A3F51;
   height: 300px;
-
-    .edit-btn {
-      @include btn(64px, 25px);
-      background-color: #8D8F90;
-      border: solid 1px #fff;
-      line-height: 25px;
-      color: #fff;
-      float: right;
-      font-size: 12px;
-    }
 
     .profile-content {
       margin: 100px 5%;
       width: 50%;
+
+      .profile-avatar img {
+        border-radius: 30px;
+      }
 
       h2.profile-nickname {
         color: #fff;
@@ -31,7 +25,7 @@
       p.profile-member {
         color: #fff;
         margin-top: 10px;
-        font-size: 15px;
+        font-size: 13px;
         opacity: 0.7;
       }
       .profile-lesson {
@@ -39,20 +33,20 @@
         margin-top: 5px;
 
         .profile-lesson-info {
-          background-color: #8D8F90;
-          border: solid 1px #fff;
           height: 50px;
           min-width: 32%;
           display: inline-block;
-          color: #fff;
           float: left;
-          padding: 5px;
+          padding: 2px;
           h5 {
             font-size: 11px;
             text-align: center;
+            color: #95D9EE;
 
             span {
               font-size: 25px;
+              color: #23B7E5;
+
             }
           }
         }
