@@ -9,3 +9,6 @@
       %li= link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
       %li= link_to "ログイン", user_session_path
+      %li= link_to "新規登録", new_user_registration_path
+    - @genres.each_with_index do |genre, i|
+      %li{ class: "#{'nav-genre-first' if i == 0}" }= link_to "#{genre.name}のレッスン一覧", lessons_genre_path(genre)

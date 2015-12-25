@@ -34,15 +34,6 @@
         %br
         コーチが探せる
 
-
-%h2.header-tab ジャンル一覧
-.lesson
-  - @genres.each do |genre|
-    = link_to lessons_genre_path(genre.id) do
-      .row-content
-        = image_tag("bat.png")
-        %p#genre #{ genre.name }
-
 %h2.header-tab 新着レッスン一覧
 .lesson
   = render partial: 'common/lesson', collection: @lessons

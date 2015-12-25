@@ -9,7 +9,7 @@
         %span.chat_name= "smart coach 運営"
         %span.chat_time
       .chat_text
-        = "まず、コーチに挨拶してみましょう！"
+        = "まず、生徒に挨拶してみましょう！"
     = render partial: 'common/chat_message', collection: @chat_messages
 
 = form_for @chat_message, url: "/coaches/lessons/#{@lesson.id}/students/#{@student.id}/chat_messages/pusher", html: { class: 'container' }, remote: true do |f|

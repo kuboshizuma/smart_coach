@@ -132,6 +132,9 @@ nav#my-menu {
   li a {
     padding: 20px 10px 20px 20px
   }
+  li.nav-genre-first {
+    border-top: #666 3px solid;
+  }
 }
 
 // article
@@ -202,10 +205,10 @@ nav#my-menu {
 
 .profile {
   background-color: #3A3F51;
-  height: 300px;
+  height: 250px;
 
   .profile-content {
-    margin: 100px 5%;
+    margin: 50px 5%;
     width: 50%;
 
     .profile-avatar img {
