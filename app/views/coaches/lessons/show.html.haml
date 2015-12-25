@@ -2,7 +2,7 @@
   = stylesheet_link_tag :show_application
   = stylesheet_link_tag :coach_application
 .show-wrapper
-  = image_tag "phone.png", class: 'thumbnail-item'
+  = image_tag @lesson.thumbnail, class: 'thumbnail-item'
   .btns
     .edit-btn
       = link_to "編集する", edit_coaches_lesson_path(@lesson.id)
@@ -10,12 +10,14 @@
       = link_to "削除する", coaches_lesson_path(@lesson.id), method: :delete, data: { confirm: "本当に削除してもいいですか？" }
   .item-container
     %span.genre-btn{ style: "color: ##{@lesson.genre.color}; border-color: ##{@lesson.genre.color}"}
-      = link_to "#{ @lesson.genre.name }", lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
+      = link_to @lesson.genre.name, lessons_genre_path(@lesson.genre_id), style: "color: ##{@lesson.genre.color}"
     %p.main-title #{ @lesson.title }
 
   %h2.lesson-students 受講中の生徒
-  - @rooms.each do |room|
+  - if @rooms.blank?
+    %p.margin-both-side 受講生徒はまだいません。
 
+  - @rooms.each do |room|
     = link_to coaches_lesson_student_path(@lesson, room.student) do
       .row-content
         .article-thumbnail
@@ -28,7 +30,7 @@
               受講中
             %p.lesson-title#student-name= room.student.nickname
 
-  %p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
+  -# %p= link_to "生徒詳細はこちらから", coaches_lesson_students_path(@lesson)
 
   .lesson-info
     .sub-title
