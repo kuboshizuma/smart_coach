@@ -9,15 +9,17 @@
     %h2.profile-nickname
       = current_user.nickname
     %p.profile-member
-      ◯◯高校野球部顧問
+      = current_user.belong
     .profile-lesson
       .profile-lesson-info
         %h5
-          %span 3
+          %span
+            = @lessons.count
           lessons
       .profile-lesson-info
         %h5
-          %span 3
+          %span
+            = total_students(@lessons)
           students
 
 .lesson-btn
