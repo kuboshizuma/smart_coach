@@ -19,3 +19,23 @@
 %h2.header-tab 受講コース一覧
 .lesson
   = render partial: 'common/student_room', collection: @rooms
+
+= javascript_include_tag '//js.pusher.com/2.2/pusher.min.js'
+:javascript
+  $('.row-content').each(function() {
+    var pusherAccessKey = $(this).data('key');
+    var roomId = $(this).data('id');
+
+    var pusher = new Pusher(pusherAccessKey);
+    var channel = pusher.subscribe("room_" + roomId);
+    var lesson = $(this).find('.lesson-genre');
+
+    channel.bind('chat_event', function(data) {
+      lesson.removeClass('read');
+      $.ajax({
+        url: "/students/rooms/" + roomId + "/chat_messages/unread",
+        type: "POST"
+      });
+    });
+
+  });

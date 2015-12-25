@@ -1,5 +1,7 @@
 class Students::ChatMessagesController < Students::StudentsController
   def index
+    room = Room.find(params[:room_id])
+    room.update_column(:unread_student, 0)
     @chat_messages = ChatMessage.where(room_id: params[:room_id]).order(updated_at: :DESC)
     @chat_message = ChatMessage.new(room_id: params[:room_id], talker_id: current_user.id)
   end
@@ -21,6 +23,8 @@ class Students::ChatMessagesController < Students::StudentsController
 
   def create
     @chat_messages = ChatMessage.where(room_id: params[:room_id]).includes(:talker)
+    room = Room.find(params[:room_id])
+    room.update_column(:unread_coach, 1)
   end
 
   def destroy
@@ -31,6 +35,11 @@ class Students::ChatMessagesController < Students::StudentsController
     else
       redirect_to root_path
     end
+  end
+
+  def unread
+    room = Room.find(params[:room_id])
+    room.update_column(:unread_student, 1)
   end
 
   private

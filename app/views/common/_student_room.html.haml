@@ -1,12 +1,12 @@
 = link_to students_room_path(student_room.id), class: "article-box" do
-  .row-content
+  .row-content{data: {key: ENV['PUSHER_ACCESS_KEY'], id: student_room.id}}
     .article-thumbnail
       %span{ style: "background-image: url(#{student_room.lesson.thumbnail});"}
     .article-right-box
       .article-right-top-box.clearfix
         %span.lesson-duration
           #{lesson_start_time(student_room.lesson.start_day)} - #{lesson_finish_time(student_room.lesson.start_day, student_room.lesson.month)}
-        %span.lesson-genre{ style: "color: ##{student_room.lesson.genre.color}; border-color: ##{student_room.lesson.genre.color}"}
-          = student_room.lesson.genre.name
+        %span.lesson-genre{ class: "#{'read' if student_room.unread_student == 0}", style: "color: #D13B40; border-color: #D13B40"}
+          未読メッセージあり
       %p.lesson-title= student_room.lesson.title
       %p.lesson-coach= student_room.lesson.coach.nickname
