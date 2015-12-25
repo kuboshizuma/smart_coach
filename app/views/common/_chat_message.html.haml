@@ -1,6 +1,6 @@
 .chat_message_box
   .chat_profile.clearfix
-    = image_tag "noimage.jpg" #message.talker.avatar.thumb
+    = image_tag chat_message.talker.avatar.thumb || "noimage.jpg"
     %span.chat_name= chat_message.talker.nickname
     %span.chat_time= chat_time(chat_message.created_at)
   .chat_text

@@ -6,6 +6,8 @@ class Coaches::ChatMessagesController < Coaches::CoachesController
 
     @lesson = Lesson.find(params[:lesson_id])
     @student = User.find(params[:student_id])
+
+    room.update_column(:unread_coach, 0)
   end
 
   def pusher
@@ -36,6 +38,11 @@ class Coaches::ChatMessagesController < Coaches::CoachesController
     else
       redirect_to root_path
     end
+  end
+
+  def unread
+    room = Room.find_by(student_id: params[:student_id], lesson_id: params[:lesson_id])
+    room.update_column(:unread_coach, 1)
   end
 
   private

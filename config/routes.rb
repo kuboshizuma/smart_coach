@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :chat_messages, only: [:index, :create, :destroy], shallow: true do
           collection do
             post 'pusher'
+            post 'unread'
           end
         end
       end
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
       resources :chat_messages, only: [:index, :create, :destroy], shallow: true do
         collection do
           post 'pusher'
+          post 'unread'
         end
       end
     end

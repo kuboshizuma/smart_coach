@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224051835) do
+ActiveRecord::Schema.define(version: 20151225044326) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text     "message",      limit: 65535
@@ -56,13 +56,15 @@ ActiveRecord::Schema.define(version: 20151224051835) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer  "lesson_id",  limit: 4
-    t.integer  "student_id", limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "repeat",     limit: 4, default: 1
+    t.integer  "lesson_id",      limit: 4
+    t.integer  "student_id",     limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "repeat",         limit: 4, default: 1
     t.date     "start_day"
-    t.integer  "month",      limit: 4, default: 2
+    t.integer  "month",          limit: 4, default: 2
+    t.integer  "unread_student", limit: 4, default: 0
+    t.integer  "unread_coach",   limit: 4, default: 0
   end
 
   create_table "users", force: :cascade do |t|
