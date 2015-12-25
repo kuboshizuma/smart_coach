@@ -35,7 +35,7 @@
 
       .label-item
         = f.label :レッスンを開講する時間帯を選択してください, class: 'center'
-      - {"日": 0, "月": 1, "火": 2, "水": 3, "木": 4, "金": 5, "土": 6}.each do |(weekday, week_id)|
+      - WEEK_HASH.each do |(weekday, week_id)|
         %p{id: "week_time_#{week_id}"}
           = f.fields_for :lesson_shifts do |l|
             = weekday
